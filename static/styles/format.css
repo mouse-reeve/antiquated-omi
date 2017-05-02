@@ -1,0 +1,34 @@
+* {
+    line-height: 1.6em;
+}
+
+.novel {
+    max-width: 40rem;
+    font-family: Garamond, Georgia, Serif;
+    padding: 2em;
+    margin-right: auto;
+    margin-left: auto;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+h1, h2 {
+    font-family: Garamond, Georgia, Serif;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+h2 {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 1.1em;
+    margin-bottom: 4em;
+}
+
+.option-set span {
+    display: none
+}
+
+.option-set span.visible {
+    display: inline;
+    cursor: pointer;
+}
