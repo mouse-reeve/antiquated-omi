@@ -14,7 +14,9 @@ var title_toggle = function (optionset, i) {
 }
 
 $('.option-set').click(function() {
-    toggle(this);
+    if ($(this).children('.active').length == 0) {
+        toggle(this);
+    }
 });
 
 var toggle = function(options, callback) {
@@ -27,18 +29,17 @@ var toggle = function(options, callback) {
     typeback(current, function() {
         $(options).children().removeClass('visible');
 
-        var text = $(next).text();
-        $(next).text('');
         $(next).addClass('visible');
-        typein(next, callback, text, 100);
-    }, 100);
+        typein(next, callback);
+    });
 }
 
 var typeback = function(node, callback, delay) {
     var text = $(node).html();
     if (delay === undefined) {
         $(node).attr('data-text', text);
-        delay = 50;
+        delay = 100;
+        $(node).addClass('active');
     }
     if (!!text.length) {
         $(node).html(text.slice(0, -1));
@@ -49,6 +50,7 @@ var typeback = function(node, callback, delay) {
     } else {
         $(node).hide();
         $(node).html($(node).attr('data-text'));
+        $(node).removeClass('active');
         if (!!callback) {
             callback();
         }
@@ -56,14 +58,16 @@ var typeback = function(node, callback, delay) {
 };
 
 var typein = function(node, callback, text, delay) {
-    delay = delay || 50;
+    delay = delay || 100;
     if (text === undefined) {
         text = $(node).html();
         $(node).attr('data-text', text);
         $(node).html('');
         $(node).show();
+        $(node).addClass('active');
     }
     if (!!text.length) {
+        $(node).show();
         $(node).html($(node).html() + text.slice(0, 1));
         window.setTimeout(function () {
             delay = delay * 0.99;
@@ -71,6 +75,7 @@ var typein = function(node, callback, text, delay) {
             typein(node, callback, text, delay);
         }, delay);
     } else {
+        $(node).removeClass('active');
         if (!!callback) {
             callback();
         }
