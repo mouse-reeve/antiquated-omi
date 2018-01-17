@@ -12,6 +12,12 @@
     border-bottom: 1px solid black;
 }
 
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.4em;
+    text-transform: uppercase;
+}
+
 h1, h2 {
     font-family: Garamond, Georgia, Serif;
     text-align: center;
