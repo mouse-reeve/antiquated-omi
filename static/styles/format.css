@@ -1,6 +1,54 @@
 * {
     line-height: 1.6em;
 }
+body {
+    margin-bottom: 5em;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.4em;
+    text-transform: uppercase;
+}
+h1 small {
+    display: block;
+}
+
+h1, h2 {
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+h2 {
+    font-family: Garamond, Georgia, Serif;
+    font-weight: normal;
+    font-size: 1.1em;
+    margin-bottom: 4em;
+    max-width: 35rem;
+    margin: 0 auto;
+    padding-bottom: 3.5em;
+}
+
+a {
+    color: black;
+    background-color: #EEE;
+    text-decoration: none;
+}
+
+.novel::before, .novel::after {
+    content: '\2766';
+    text-align: center;
+    display: block;
+    position: relative;
+    top: -2.75rem;
+    background-color: white;
+    width: 3em;
+    margin: 0 auto;
+    font-size: 1.5em;
+}
+
+.novel::after {
+    top: 2.75rem;
+}
 
 .novel {
     max-width: 40rem;
@@ -12,29 +60,15 @@
     border-bottom: 1px solid black;
 }
 
-h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2.4em;
-    text-transform: uppercase;
-}
-
-h1, h2 {
-    font-family: Garamond, Georgia, Serif;
-    text-align: center;
-    letter-spacing: 0.1em;
-}
-h2 {
-    font-weight: normal;
-    font-style: italic;
-    font-size: 1.1em;
-    margin-bottom: 4em;
-}
-
-.option-set span {
+.option-set span, .title-set span {
     display: none
 }
 
-.option-set span.visible {
+.option-set span.visible, .title-set span.visible {
     display: inline;
+}
+
+.option-set span.visible {
+    background-color: #EEE;
     cursor: pointer;
 }
